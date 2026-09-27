@@ -1,5 +1,4 @@
-/** Measured values from layout-spec.json — canonical 1366×5685 reference. */
-export const PIXEL_VIEWPORT = { width: 1366, height: 5685 } as const;
+export const PIXEL_VIEWPORT = { width: 1366, height: 6105 } as const;
 
 export const PIXEL_COLORS = {
   background: "#16181E",
@@ -19,6 +18,9 @@ export const PIXEL_SECTIONS = [
   { name: "sources", y: 3795, height: 932 },
   { name: "faq", y: 4727, height: 958 },
 ] as const;
+
+/** Desktop canvas height including footer band after FAQ. */
+export const PIXEL_CANVAS_HEIGHT = 6105;
 
 export const PIXEL_ASSETS = "/landing-reference";
 

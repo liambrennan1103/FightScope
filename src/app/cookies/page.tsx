@@ -4,25 +4,26 @@ import { LandingFooter } from "@/components/landing/LandingFinalCta";
 import { routes } from "@/lib/routes";
 
 export const metadata = {
-  title: "Legal notice",
+  title: "Cookie Policy",
 };
 
-export default function LegalPage() {
+export default function CookiesPage() {
   return (
     <div className="landing-scope flex min-h-full flex-col">
       <PublicHeader />
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-16 sm:px-6">
-        <h1 className="font-display text-3xl font-semibold text-ink">Legal notice</h1>
+        <h1 className="font-display text-3xl font-semibold text-ink">Cookie Policy</h1>
         <p className="mt-4 text-sm leading-7 text-mute">
-          FightScope is an independent analysis product and is not affiliated with, endorsed by, or
-          connected to UFC or Zuffa, LLC. Fight data is presented for informational analysis only.
+          FightScope may use essential cookies or similar storage for authentication sessions,
+          locale preference, and security. Analytics or marketing cookies — if introduced — will be
+          disclosed here before activation.
         </p>
         <p className="mt-4 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm leading-7 text-mute">
           [Company / operator information to be completed before public launch]
         </p>
         <p className="mt-4 text-sm leading-7 text-mute">
-          This page is a placeholder for publisher identity and contact details. Replace with
-          counsel-reviewed legal notice before public launch.
+          This page is a structural placeholder. Replace with counsel-reviewed cookie disclosures
+          before public launch.
         </p>
         <p className="mt-8">
           <Link href={routes.landing} className="text-sm font-semibold text-accent hover:underline">

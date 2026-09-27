@@ -43,10 +43,10 @@ export function LandingFooter() {
         <FooterCol
           title="Product"
           links={[
-            { href: "#features", label: "Features" },
-            { href: "#pricing", label: "Pricing" },
-            { href: "#faq", label: "FAQ" },
-            { href: routes.signUp, label: "Get started" },
+            { href: routes.app, label: "Events" },
+            { href: routes.fighters, label: "Fighters" },
+            { href: routes.pricing, label: "Pricing" },
+            { href: "/#faq", label: "FAQ" },
           ]}
         />
         <FooterCol
@@ -59,15 +59,17 @@ export function LandingFooter() {
         <FooterCol
           title="Legal"
           links={[
-            { href: "/terms", label: "Terms" },
-            { href: "/privacy", label: "Privacy" },
-            { href: "/legal", label: "Legal notice" },
+            { href: "/terms", label: "Terms of Service" },
+            { href: "/privacy", label: "Privacy Policy" },
+            { href: "/cookies", label: "Cookie Policy" },
+            { href: "/legal", label: "Legal Notice" },
+            { href: "/disclaimer", label: "Disclaimer" },
           ]}
         />
       </div>
       <div className="border-t border-white/[0.05]">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-2 px-4 py-5 text-[12px] text-mute sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} FightScope</p>
+          <p>© {new Date().getFullYear()} FightScope. All rights reserved.</p>
           <p>Not affiliated with UFC. Analysis product only — no betting.</p>
         </div>
       </div>

@@ -17,6 +17,9 @@ export default function PrivacyPage() {
           FightScope processes account and usage data needed to operate the product (authentication,
           preferences and service analytics). We do not sell personal data for advertising.
         </p>
+        <p className="mt-4 rounded-lg border border-white/10 bg-white/[0.03] px-4 py-3 text-sm leading-7 text-mute">
+          [Company / operator information to be completed before public launch]
+        </p>
         <p className="mt-4 text-sm leading-7 text-mute">
           This page is a placeholder summary. Replace with counsel-reviewed privacy policy before
           public launch.

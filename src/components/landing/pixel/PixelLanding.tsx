@@ -4,10 +4,12 @@ import { forwardRef } from "react";
 import { PixelFaq } from "@/components/landing/pixel/PixelFaq";
 import { PixelFighterCarousel } from "@/components/landing/pixel/PixelFighterCarousel";
 import { PixelHeroStage } from "@/components/landing/pixel/PixelHeroStage";
+import { PixelLandingFooter } from "@/components/landing/pixel/PixelLandingFooter";
+import { PixelLandingMobile } from "@/components/landing/pixel/PixelLandingMobile";
 import { PixelLocaleProvider, usePixelLocale } from "@/components/landing/pixel/PixelLocaleContext";
 import { PixelParallaxBackground } from "@/components/landing/pixel/PixelParallaxBackground";
 import { PixelReveal } from "@/components/landing/pixel/PixelReveal";
-import { PIXEL_ASSETS, PIXEL_COLORS, PIXEL_SECTIONS, localY } from "@/components/landing/pixel/layout-spec";
+import { PIXEL_ASSETS, PIXEL_CANVAS_HEIGHT, PIXEL_COLORS, PIXEL_SECTIONS, localY } from "@/components/landing/pixel/layout-spec";
 import type { Fighter, SearchFighter } from "@/lib/types";
 import "./pixel-landing.css";
 
@@ -36,7 +38,7 @@ const PixelImg = forwardRef<
   );
 });
 
-function PixelLandingContent({
+function PixelLandingDesktop({
   fighters,
   carouselFighters,
 }: {
@@ -50,12 +52,11 @@ function PixelLandingContent({
   const sourcesTop = PIXEL_SECTIONS[4].y;
 
   return (
-    <div className="pixel-landing-root" data-locale={locale}>
+    <div className="pixel-landing-root pixel-landing-root--desktop" data-locale={locale}>
       <div className="pixel-landing-scale">
         <div className="pixel-landing">
           <PixelHeroStage fighters={fighters} />
 
-          {/* ── FIGHTERS ── */}
           <section
             className="pixel-section pixel-section--fighters"
             style={{ top: fightersTop, height: PIXEL_SECTIONS[1].height, zIndex: 2 }}
@@ -76,7 +77,6 @@ function PixelLandingContent({
             </div>
           </section>
 
-          {/* ── MATCHUP ── */}
           <section
             className="pixel-section pixel-section--matchup"
             style={{ top: matchupTop, height: PIXEL_SECTIONS[2].height, zIndex: 3 }}
@@ -139,7 +139,6 @@ function PixelLandingContent({
             </div>
           </section>
 
-          {/* ── AI ANALYSIS ── */}
           <section
             className="pixel-section"
             style={{ top: analysisTop, height: PIXEL_SECTIONS[3].height, zIndex: 4 }}
@@ -172,7 +171,6 @@ function PixelLandingContent({
             </PixelReveal>
           </section>
 
-          {/* ── SOURCES ── */}
           <section
             className="pixel-section pixel-section--sources"
             style={{ top: sourcesTop, height: PIXEL_SECTIONS[4].height, zIndex: 5 }}
@@ -209,13 +207,19 @@ function PixelLandingContent({
             </PixelReveal>
           </section>
 
-          {/* ── FAQ ── */}
           <section
             className="pixel-section"
             id="faq"
             style={{ top: PIXEL_SECTIONS[5].y, height: PIXEL_SECTIONS[5].height, zIndex: 6 }}
           >
             <PixelFaq />
+          </section>
+
+          <section
+            className="pixel-section pixel-section--footer"
+            style={{ top: PIXEL_SECTIONS[5].y + PIXEL_SECTIONS[5].height, height: PIXEL_CANVAS_HEIGHT - (PIXEL_SECTIONS[5].y + PIXEL_SECTIONS[5].height), zIndex: 7 }}
+          >
+            <PixelLandingFooter />
           </section>
         </div>
       </div>
@@ -232,7 +236,13 @@ export function PixelLanding({
 }) {
   return (
     <PixelLocaleProvider>
-      <PixelLandingContent fighters={fighters} carouselFighters={carouselFighters} />
+      {/* Desktop: scaled 1366 canvas. Mobile: dedicated flow layout (not a shrink). */}
+      <div className="pixel-desktop-only">
+        <PixelLandingDesktop fighters={fighters} carouselFighters={carouselFighters} />
+      </div>
+      <div className="pixel-mobile-only">
+        <PixelLandingMobile fighters={fighters} carouselFighters={carouselFighters} />
+      </div>
     </PixelLocaleProvider>
   );
 }

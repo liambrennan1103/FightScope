@@ -1,6 +1,6 @@
 import type { Fighter, FighterPortraitConfig } from "@/lib/types";
 import portraitIndex from "./portrait-index.json";
-import { ESPN_OBJECT_POSITION } from "./portrait-constants";
+import { ESPN_OBJECT_POSITION, espnPortraitSrc } from "./portrait-constants";
 
 export type FighterPresentation = {
   espnId?: string;
@@ -171,8 +171,18 @@ export function resolveFighterPresentation(input: {
     };
   }
 
-  // Never guess ESPN CDN URLs for unknown IDs — that produces broken <img>
-  // boxes with visible alt text. Use the FightScope silhouette instead.
+  // Numeric ESPN athlete IDs not yet in the portrait index: serve via the
+  // stable /portraits/espn/{id}.png path (local file or next.config rewrite to
+  // ESPN CDN). FighterPortrait onError → silhouette if the headshot 404s.
+  // Never invent absolute espncdn URLs in the DOM.
+  if (/^\d+$/.test(id)) {
+    return {
+      src: espnPortraitSrc(id),
+      objectPosition: match?.objectPosition ?? DEFAULT_POSITION,
+      status: "sourced",
+    };
+  }
+
   return {
     src: null,
     objectPosition: DEFAULT_POSITION,
