@@ -9,8 +9,16 @@ export interface SessionUser {
   name: string;
 }
 
+function readAuthSecret(): string | undefined {
+  // Dynamic key access — avoids Next.js build-time inlining of AUTH_SECRET.
+  const secret = process.env["AUTH_SECRET"];
+  if (typeof secret !== "string") return undefined;
+  const trimmed = secret.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+}
+
 function secretKey() {
-  const secret = process.env.AUTH_SECRET;
+  const secret = readAuthSecret();
   if (secret && secret.length >= 16) {
     return new TextEncoder().encode(secret);
   }

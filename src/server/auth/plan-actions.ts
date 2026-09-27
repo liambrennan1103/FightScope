@@ -12,7 +12,8 @@ import type { PlanId } from "@/lib/types";
  */
 export async function setDevPlanAction(plan: PlanId): Promise<{ ok: boolean; plan: PlanId | null }> {
   const allow =
-    process.env.NODE_ENV !== "production" || process.env.FIGHTSCOPE_ALLOW_DEV_PLAN === "1";
+    process.env.NODE_ENV !== "production" ||
+    process.env["FIGHTSCOPE_ALLOW_DEV_PLAN"]?.trim() === "1";
   if (!allow) {
     return { ok: false, plan: null };
   }

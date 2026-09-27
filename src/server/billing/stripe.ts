@@ -2,13 +2,16 @@ import "server-only";
 
 import Stripe from "stripe";
 import { isStripeConfigured } from "@/server/billing/plans";
+import { readServerEnv } from "@/server/runtime-env";
 
 let cached: Stripe | null = null;
 
 export function getStripe(): Stripe | null {
   if (!isStripeConfigured()) return null;
   if (cached) return cached;
-  cached = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  const key = readServerEnv("STRIPE_SECRET_KEY");
+  if (!key) return null;
+  cached = new Stripe(key, {
     apiVersion: "2025-02-24.acacia",
     typescript: true,
   });

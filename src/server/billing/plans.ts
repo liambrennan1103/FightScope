@@ -42,7 +42,7 @@ export function planFromPriceId(priceId: string | null | undefined): "starter" |
 }
 
 export function isStripeConfigured(): boolean {
-  return Boolean(process.env.STRIPE_SECRET_KEY?.trim());
+  return Boolean(process.env["STRIPE_SECRET_KEY"]?.trim());
 }
 
 export function siteUrl(): string {

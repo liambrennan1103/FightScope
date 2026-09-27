@@ -4,7 +4,7 @@
  */
 export async function invokeSiteJob(job: string) {
   const siteUrl = process.env.URL || process.env.DEPLOY_PRIME_URL || process.env.SITE_URL;
-  const secret = process.env.CRON_SECRET;
+  const secret = process.env["CRON_SECRET"];
   if (!siteUrl) {
     return {
       statusCode: 500,

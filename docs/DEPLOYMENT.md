@@ -29,7 +29,16 @@
 | `ANTHROPIC_API_KEY` / `OPENAI_API_KEY` | LLM narrative rewrite |
 | `STRIPE_PRICE_*_LEGACY` | Comma-separated old price IDs |
 | `FIGHTSCOPE_DEV_PLAN` | Never set in production |
-| `FIGHTSCOPE_ALLOW_DEV_PLAN` | Never set in production |
+| `FIGHTSCOPE_ALLOW_DEV_PLAN` | Never set in production (non-secret flag; if present, Netlify omits it from secrets scan via `SECRETS_SCAN_OMIT_KEYS`) |
+
+## Secrets scanning (Netlify)
+
+Netlify scans **env var values** in the repo + build output.
+
+- `FIGHTSCOPE_ALLOW_DEV_PLAN` is often `1` — that value appears everywhere and is a **false positive**. Omitted in `netlify.toml` via `SECRETS_SCAN_OMIT_KEYS`.
+- Real secrets (`AUTH_SECRET`, `ANTHROPIC_API_KEY`, `SUPABASE_SECRET_KEY`, Stripe, `CRON_SECRET`) are read with **dynamic** `process.env[name]` / `readServerEnv()` so Next does not statically inline them into client bundles. `.next/cache` is omitted from the scan path list (not published).
+- **Do not** add real credential keys to `SECRETS_SCAN_OMIT_KEYS` unless deploy logs prove the hit is only in server/cache artifacts with zero client exposure.
+- After changing secret handling, use **Clear cache and retry** on Netlify once.
 
 ## Stripe webhook
 1. Create endpoint: `https://<your-domain>/api/billing/webhook`

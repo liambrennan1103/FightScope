@@ -1,3 +1,13 @@
+[build.environment]
+  NODE_VERSION = "20"
+  # FIGHTSCOPE_ALLOW_DEV_PLAN is a non-secret boolean-ish flag (typically "1").
+  # Its value collides with thousands of bytes in source/build output → Netlify
+  # secrets-scan false positive. Do NOT omit real credentials here.
+  SECRETS_SCAN_OMIT_KEYS = "FIGHTSCOPE_ALLOW_DEV_PLAN"
+  # Turbopack/Next may cache compilation artifacts that briefly retain env bytes.
+  # Cache is not published to the CDN; omit from scan only.
+  SECRETS_SCAN_OMIT_PATHS = ".next/cache,.next/dev"
+
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
@@ -10,3 +20,5 @@
 #
 # Stripe webhook path: /api/billing/webhook
 # (configure in Stripe Dashboard → Developers → Webhooks)
+#
+# Do NOT set FIGHTSCOPE_ALLOW_DEV_PLAN or FIGHTSCOPE_DEV_PLAN in production.

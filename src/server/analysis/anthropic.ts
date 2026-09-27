@@ -1,19 +1,20 @@
 import "server-only";
 
 import Anthropic from "@anthropic-ai/sdk";
+import { readServerEnv } from "@/server/runtime-env";
 
 /** Cost-efficient model for structured MMA narrative (MVP). Override via ANTHROPIC_MODEL. */
 export const ANTHROPIC_MODEL =
-  process.env.ANTHROPIC_MODEL?.trim() || "claude-haiku-4-5-20251001";
+  readServerEnv("ANTHROPIC_MODEL") || "claude-haiku-4-5-20251001";
 
 export function hasAnthropicApiKey(): boolean {
-  return Boolean(process.env.ANTHROPIC_API_KEY?.trim());
+  return Boolean(readServerEnv("ANTHROPIC_API_KEY"));
 }
 
 let client: Anthropic | null = null;
 
 export function getAnthropicClient(): Anthropic {
-  const apiKey = process.env.ANTHROPIC_API_KEY?.trim();
+  const apiKey = readServerEnv("ANTHROPIC_API_KEY");
   if (!apiKey) {
     throw new Error("ANTHROPIC_API_KEY is not configured");
   }
