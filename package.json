@@ -1,0 +1,50 @@
+{
+  "name": "fightscope",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "portraits:ingest": "npx tsx src/server/mma/ingest-portraits.ts",
+    "fighters:audit": "node scripts/audit-fighter-coverage.mjs",
+    "events:fetch-backgrounds": "node scripts/fetch-event-backgrounds.mjs",
+    "snapshot:refresh": "npx tsx src/server/mma/refresh-snapshot.ts",
+    "snapshot:enrich-stats": "npx tsx src/server/mma/enrich-upcoming-stats.ts",
+    "test:analysis": "npx tsx src/server/analysis/analysis.selftest.ts",
+    "test:production-cache": "npx tsx src/server/analysis/production.selftest.ts",
+    "test:prediction": "npx tsx src/server/prediction/prediction.selftest.ts",
+    "fightscope:backtest": "npx tsx src/server/prediction/backtest.ts",
+    "fightscope:report": "npx tsx src/server/prediction/backtest.ts",
+    "fightscope:validate": "npx tsx src/server/prediction/prediction.selftest.ts",
+    "precompute:upcoming": "npx tsx src/server/analysis/precompute-upcoming.ts",
+    "test:landing-pixel": "node scripts/landing-pixel-diff.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.122.0",
+    "@netlify/functions": "^6.0.0",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.112.4",
+    "jose": "^6.2.10",
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "server-only": "^0.0.1",
+    "stripe": "^17.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.3",
+    "pixelmatch": "^7.2.0",
+    "playwright": "^1.62.1",
+    "pngjs": "^7.0.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

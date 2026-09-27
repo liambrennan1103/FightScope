@@ -1,0 +1,94 @@
+{
+  "generatedAt": "2026-08-29T19:29:44.273Z",
+  "roster": 464,
+  "approved": 447,
+  "rejected": 0,
+  "missing": 17,
+  "unresolved": [
+    {
+      "id": "5364833",
+      "name": "Abe Alsaghir",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5369721",
+      "name": "Arlind Berisha",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5369435",
+      "name": "Douglas Rodrigues",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5401055",
+      "name": "Fabia Sintes",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5364834",
+      "name": "Fabrizio Escarrega",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5345639",
+      "name": "Ilimbek Akylbek Uulu",
+      "reason": "espn 404"
+    },
+    {
+      "id": "4687604",
+      "name": "Joe Kropschot",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5282317",
+      "name": "Jon Kunneman",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5139609",
+      "name": "Logan Paxton",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5364347",
+      "name": "Matt Adams",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5345640",
+      "name": "Mehemmedeli Osmanli",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5169699",
+      "name": "Melissa Amaya",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5142304",
+      "name": "Michael Aljarouj",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5277466",
+      "name": "Mridul Saikia",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5215178",
+      "name": "Namo Fazil",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5307124",
+      "name": "Quentin Pasley",
+      "reason": "espn 404"
+    },
+    {
+      "id": "5116823",
+      "name": "Tom Pagliarulo",
+      "reason": "espn 404"
+    }
+  ]
+}

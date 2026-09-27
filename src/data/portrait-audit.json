@@ -1,0 +1,40 @@
+{
+  "generatedAt": "2026-08-26T13:35:00.000Z",
+  "totalFighters": 436,
+  "realPortraits": 412,
+  "anonymousAvatars": 22,
+  "tbaPlaceholders": 2,
+  "initialsRemaining": 0,
+  "researchNotes": [
+    "ESPN headshot CDN returned 404 for all 22 unresolved Contender Series prospects.",
+    "ESPN athlete API returned no headshot/image fields for sampled missing IDs.",
+    "UFC.com athlete pages returned soft-200 shells with empty og:image for all 22 slugs.",
+    "Tapology search endpoints returned 403 (blocked).",
+    "Previously rejected UFC og images (Nelson, Liu Ce, Rojas) already recovered earlier.",
+    "TBA / Opponent TBA roster stubs intentionally have no portrait."
+  ],
+  "unresolvedRealFighters": [
+    { "id": "5364347", "name": "Matt Adams", "nickname": "Bad", "division": "Heavyweight" },
+    { "id": "5364833", "name": "Abe Alsaghir", "nickname": "The Killer", "division": "Lightweight" },
+    { "id": "5345643", "name": "Delphine Benouaich", "nickname": null, "division": "Women's Strawweight" },
+    { "id": "5369721", "name": "Arlind Berisha", "nickname": null, "division": "Light Heavyweight" },
+    { "id": "5369424", "name": "Charlie Cleveland", "nickname": "The Reaper", "division": "Heavyweight" },
+    { "id": "5369446", "name": "Adam Darby", "nickname": "The Plank", "division": "Welterweight" },
+    { "id": "5364834", "name": "Fabrizio Escarrega", "nickname": "El Cachorro", "division": "Lightweight" },
+    { "id": "5215178", "name": "Namo Fazil", "nickname": "Grandson of Saladin", "division": "Welterweight" },
+    { "id": "4687604", "name": "Joe Kropschot", "nickname": null, "division": "Middleweight" },
+    { "id": "5282317", "name": "Jon Kunneman", "nickname": null, "division": "Middleweight" },
+    { "id": "5215710", "name": "Gabriel Lourenço", "nickname": "Black Mamba", "division": "Heavyweight" },
+    { "id": "5125221", "name": "Liam McCracken", "nickname": null, "division": "Lightweight" },
+    { "id": "5116823", "name": "Tom Pagliarulo", "nickname": "The Phenom", "division": "Featherweight" },
+    { "id": "5307124", "name": "Quentin Pasley", "nickname": null, "division": "Light Heavyweight" },
+    { "id": "5139609", "name": "Logan Paxton", "nickname": "Warverine", "division": "Lightweight" },
+    { "id": "4791642", "name": "Patrick Rivera", "nickname": null, "division": "Welterweight" },
+    { "id": "5369435", "name": "Douglas Rodrigues", "nickname": "Blade", "division": "Middleweight" },
+    { "id": "5364355", "name": "Modestino Rodrigues", "nickname": "The Slenderman", "division": "Middleweight" },
+    { "id": "5277466", "name": "Mridul Saikia", "nickname": "Crusher", "division": "Flyweight" },
+    { "id": "5369437", "name": "Silvestre Sanchez", "nickname": "Gorilla", "division": "Lightweight" },
+    { "id": "5401062", "name": "Hector Santiago", "nickname": null, "division": "Bantamweight" },
+    { "id": "5364357", "name": "Hunter Smith", "nickname": "Headshot", "division": "Lightweight" }
+  ]
+}

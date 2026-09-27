@@ -1,0 +1,1233 @@
+@import "tailwindcss";
+
+:root {
+  /* Fight night palette — Corner Red split for WCAG AA:
+     text #EF5252 on steel ≈ 5.07:1; fill #C73636 under white ≈ 5.24:1 */
+  --background: #0e0f12;
+  --surface: #16181e;
+  --elevated: #1c1f28;
+  --line: #2a2e38;
+  --line-strong: #3d4452;
+  --ink: #f2f2f0;
+  --mute: #8b8e98;
+  --accent: #ef5252;
+  --accent-fill: #c73636;
+  --accent-dark: #8f242b;
+  --accent-soft: rgba(239, 82, 82, 0.14);
+  --tape: #7a8fa8;
+  --amber: #c4a35a;
+  --win: #ef5252;
+  --loss: #6b6b73;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+
+  /* Sticky stack — analysis chrome */
+  --fs-z-base: 1;
+  --fs-z-compare-accordion: 15;
+  --fs-z-compare-header: 20;
+  --fs-z-chrome: 40;
+  --fs-z-overlay: 50;
+  --fs-chrome-offset: 4.25rem;
+  --fs-compare-header-h: 3rem;
+  --fs-scroll-margin: 5.5rem;
+
+  /* Liquid Glass tokens — palette-derived alphas only (no new brand colors) */
+  --glass-blur: 20px;
+  --glass-saturate: 180%;
+  --glass-bg: rgba(22, 24, 30, 0.55);
+  --glass-bg-strong: rgba(14, 15, 18, 0.72);
+  --glass-bg-soft: rgba(22, 24, 30, 0.4);
+  --glass-border: rgba(242, 242, 240, 0.08);
+  --glass-border-strong: rgba(242, 242, 240, 0.14);
+  --glass-specular: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 40%
+  );
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --glass-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --glass-radius: 24px;
+  --glass-radius-lg: 28px;
+  --glass-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --glass-cta-bg: rgba(199, 54, 54, 0.82);
+  --glass-cta-bg-hover: rgba(199, 54, 54, 0.92);
+  --glass-active: rgba(199, 54, 54, 0.28);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-accent: var(--accent);
+  --color-accent-fill: var(--accent-fill);
+  --color-accent-dark: var(--accent-dark);
+  --color-accent-soft: var(--accent-soft);
+  --color-tape: var(--tape);
+  --color-amber: var(--amber);
+  --color-win: var(--win);
+  --color-loss: var(--loss);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-landing-display: var(--font-landing-display);
+  --font-landing-body: var(--font-landing-body);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+/* Landing-only type system (app chrome keeps Geist). */
+.landing-scope {
+  font-family: var(--font-landing-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+.landing-scope .font-display {
+  font-family: var(--font-landing-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* Product display (Predicted Edge L1) — Oswald from design system. */
+.font-display {
+  font-family: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* ── Liquid Glass system (nav/control layer only) ── */
+.fs-glass {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--glass-radius);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  transition:
+    transform 300ms var(--glass-ease),
+    border-radius 300ms var(--glass-ease),
+    background-color 300ms var(--glass-ease),
+    box-shadow 300ms var(--glass-ease),
+    border-color 300ms var(--glass-ease);
+}
+
+.fs-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--glass-specular);
+  z-index: 1;
+}
+
+.fs-glass > * {
+  position: relative;
+  z-index: 2;
+}
+
+.fs-glass-nav {
+  background: var(--glass-bg-strong);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.fs-glass-panel {
+  border-radius: var(--glass-radius);
+}
+
+.fs-glass-capsule {
+  border-radius: 999px;
+  box-shadow: var(--glass-shadow-sm);
+  background: var(--glass-bg-soft);
+}
+
+.fs-glass-overlay {
+  background: var(--glass-bg-strong);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.fs-glass-cta {
+  position: relative;
+  isolation: isolate;
+  background: var(--glass-cta-bg);
+  border: 1px solid rgba(242, 242, 240, 0.12);
+  box-shadow: var(--glass-shadow-sm);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  overflow: hidden;
+}
+
+.fs-glass-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    transparent 42%
+  );
+  z-index: 1;
+}
+
+.fs-glass-cta > * {
+  position: relative;
+  z-index: 2;
+}
+
+.fs-glass-cta:hover {
+  background: var(--glass-cta-bg-hover);
+  filter: brightness(1.04);
+}
+
+.fs-glass-float-card {
+  border-radius: var(--glass-radius);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ── Extreme Liquid Glass — 3 named material variants ── */
+
+/* 1. Frosted Nav — dense, stable, readable (header/sidebar) */
+.fs-glass-frosted {
+  --glass-blur: 24px;
+  background: rgba(14, 15, 18, 0.72);
+  border: 1px solid rgba(242, 242, 240, 0.1);
+  border-radius: var(--glass-radius-lg);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  backdrop-filter: blur(24px) saturate(170%);
+}
+
+.fs-glass-frosted::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 38%);
+}
+
+/* 2. Floating Data Glass — lighter, breathes, Corner Red edge glow on hover */
+.fs-glass-data {
+  --glass-blur: 12px;
+  background: rgba(22, 24, 30, 0.62);
+  border: 1px solid rgba(242, 242, 240, 0.08);
+  border-radius: 22px;
+  box-shadow: var(--glass-shadow-sm);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  animation: fs-glass-breathe 6.5s ease-in-out infinite;
+  transition:
+    transform 300ms var(--glass-ease),
+    box-shadow 300ms var(--glass-ease),
+    border-color 300ms var(--glass-ease);
+}
+
+.fs-glass-data:hover {
+  border-color: rgba(239, 82, 82, 0.28);
+  box-shadow:
+    var(--glass-shadow-sm),
+    inset 0 0 0 1px rgba(199, 54, 54, 0.22),
+    0 0 24px rgba(199, 54, 54, 0.12);
+}
+
+@keyframes fs-glass-breathe {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2.5px);
+  }
+}
+
+/* 3. Deep Glass — premium aurora layers (Pro / conversion only) */
+.fs-glass-deep {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: rgba(14, 15, 18, 0.55);
+  border: 1px solid rgba(242, 242, 240, 0.1);
+  border-radius: 28px;
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  backdrop-filter: blur(28px) saturate(190%);
+}
+
+.fs-glass-deep::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 45%);
+  z-index: 2;
+}
+
+.fs-glass-deep::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(199, 54, 54, 0.28), transparent 42%),
+    radial-gradient(circle at 80% 70%, rgba(122, 143, 168, 0.18), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(196, 163, 90, 0.12), transparent 40%);
+  animation: fs-aurora-drift 28s ease-in-out infinite alternate;
+}
+
+.fs-glass-deep > * {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes fs-aurora-drift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(5%, 3%, 0) scale(1.08);
+  }
+}
+
+/* Living background — Option B mesh + Option C scroll intensity */
+.fs-living-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.fs-living-bg.is-local {
+  position: absolute;
+}
+
+.fs-living-bg__mesh {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(
+      ellipse 55% 45% at calc(30% + var(--fs-scroll-x, 0%) * 0.15) calc(20% + var(--fs-scroll-y, 0%) * 0.2),
+      rgba(199, 54, 54, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at calc(75% - var(--fs-scroll-y, 0%) * 0.1) calc(60% + var(--fs-scroll-x, 0%) * 0.12),
+      rgba(122, 143, 168, 0.06),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 50% 100%,
+      rgba(22, 24, 30, 0.9),
+      transparent 70%
+    ),
+    var(--background);
+  animation: fs-mesh-drift 36s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes fs-mesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-2%, 1.5%, 0) scale(1.04);
+  }
+}
+
+/* Physical CTA spring */
+@keyframes fs-phys-press {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.96);
+  }
+  70% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.fs-phys-press:active:not(:disabled) {
+  animation: fs-phys-press 320ms var(--glass-ease);
+}
+
+/* Count-up / tape spring helpers */
+.fs-tape-spring {
+  transform-origin: center;
+  transition: transform 900ms cubic-bezier(0.34, 1.45, 0.64, 1);
+}
+
+.fs-connector-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fs-connector-draw.is-drawn {
+  stroke-dashoffset: 0;
+}
+
+.fs-parallax-frame {
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.fs-parallax-photo {
+  transition: transform 120ms linear;
+  will-change: transform;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .fs-glass,
+  .fs-glass-nav,
+  .fs-glass-panel,
+  .fs-glass-capsule,
+  .fs-glass-overlay,
+  .fs-glass-frosted,
+  .fs-glass-data,
+  .fs-glass-deep {
+    background: rgba(22, 24, 30, 0.94);
+  }
+
+  .fs-glass-cta {
+    background: var(--accent-fill);
+  }
+
+  .fs-glass-deep::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fs-glass,
+  .fs-glass-cta,
+  .fs-glass-data,
+  .fs-glass-deep {
+    transition: none;
+    animation: none !important;
+  }
+
+  .fs-glass::before,
+  .fs-glass-cta::before {
+    opacity: 0.35;
+  }
+
+  .fs-living-bg__mesh,
+  .fs-glass-deep::after,
+  .fs-glass-data {
+    animation: none !important;
+  }
+
+  .fs-phys-press:active:not(:disabled) {
+    animation: none;
+    transform: scale(0.98);
+  }
+
+  .fs-tape-spring {
+    transition: none;
+  }
+
+  .fs-connector-draw {
+    transition: none;
+    stroke-dashoffset: 0;
+  }
+
+  .fs-parallax-photo {
+    transition: none;
+    transform: none !important;
+  }
+
+  [data-fs-analysis-nav-inline] > div,
+  [data-fs-analysis-nav-docked] {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* View-transition morph: Analyze CTA ↔ analysis surface */
+::view-transition-old(fs-analysis-morph),
+::view-transition-new(fs-analysis-morph) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Perf: quieter mesh on small screens */
+  .fs-living-bg__mesh {
+    animation: none;
+    transform: none;
+  }
+
+  .fs-glass-data {
+    animation: none;
+  }
+}
+
+html {
+  background: var(--background);
+  color: var(--ink);
+  color-scheme: dark;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100%;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+select {
+  color-scheme: dark;
+  background-color: var(--elevated);
+  color: var(--ink);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes fs-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fs-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fs-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: var(--elevated);
+}
+
+.fs-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07), transparent);
+  animation: fs-shimmer 1.35s ease-in-out infinite;
+}
+
+.fs-reveal {
+  animation: fs-reveal 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-page-enter {
+  animation: fs-page-enter 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fs-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fs-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.fs-marquee {
+  animation: fs-marquee 48s linear infinite;
+}
+
+.fs-marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fs-marquee {
+    animation: none;
+  }
+
+  .fs-page-enter,
+  .fs-analyze-scan,
+  .fs-analyze-cta,
+  .fs-analysis-reveal,
+  .fs-analysis-reveal-delay-1,
+  .fs-analysis-reveal-delay-2,
+  .fs-analysis-reveal-delay-3,
+  .fs-analyzing-board,
+  .fs-analyze-portrait-ring,
+  .fs-factor-reveal,
+  .fs-analyze-handoff,
+  .fs-metric-reveal,
+  .fs-compare-section {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Analyze Fight — primary product CTA (Liquid Glass Corner Red) */
+.fs-analyze-cta {
+  border-radius: 999px !important;
+  background: var(--glass-cta-bg) !important;
+  border: 1px solid rgba(242, 242, 240, 0.12);
+  box-shadow: var(--glass-shadow-sm);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 300ms var(--glass-ease),
+    box-shadow 300ms var(--glass-ease),
+    filter 300ms var(--glass-ease),
+    background-color 300ms var(--glass-ease);
+}
+
+.fs-analyze-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, transparent 42%);
+  z-index: 1;
+}
+
+.fs-analyze-cta:hover:not(:disabled) {
+  background: var(--glass-cta-bg-hover) !important;
+  transform: translateY(-1px) scale(1.01);
+  filter: brightness(1.04);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.fs-analyze-cta:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+  filter: brightness(0.98);
+}
+
+.fs-analyze-locked {
+  opacity: 0.92;
+}
+
+.fs-circular-loader {
+  filter: drop-shadow(0 0 18px rgba(226, 78, 50, 0.18));
+}
+
+.fs-analyze-portrait-ring {
+  box-shadow: 0 0 0 1px rgba(227, 59, 59, 0.25);
+  animation: fs-portrait-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes fs-portrait-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(227, 59, 59, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(227, 59, 59, 0.45), 0 0 16px rgba(227, 59, 59, 0.12);
+  }
+}
+
+.fs-analyze-handoff {
+  animation: fs-reveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-factor-reveal {
+  animation: fs-reveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-compare-section {
+  animation: fs-reveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-metric-reveal {
+  animation: fs-reveal 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-lock-blur {
+  filter: blur(14px);
+  opacity: 0.55;
+}
+
+.fs-fight-card img {
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fs-fight-card:hover img {
+  transform: scale(1.015);
+}
+
+@keyframes fs-analyze-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  80% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.fs-analyze-scan {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(227, 59, 59, 0.12) 45%,
+    rgba(227, 59, 59, 0.22) 50%,
+    rgba(227, 59, 59, 0.12) 55%,
+    transparent 100%
+  );
+  animation: fs-analyze-scan 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.fs-analyzing-board {
+  box-shadow: 0 0 0 1px rgba(227, 59, 59, 0.18);
+}
+
+.fs-analysis-reveal {
+  animation: fs-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fs-analysis-reveal-delay-1 {
+  animation: fs-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.fs-analysis-reveal-delay-2 {
+  animation: fs-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.22s both;
+}
+
+.fs-analysis-reveal-delay-3 {
+  animation: fs-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+}
+
+.fs-board {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 80% 90% at 0% 50%, rgba(227, 59, 59, 0.1), transparent 58%),
+    radial-gradient(ellipse 70% 80% at 100% 45%, rgba(255, 255, 255, 0.035), transparent 55%),
+    var(--surface);
+}
+
+.fs-board[data-pick="right"] {
+  background:
+    radial-gradient(ellipse 80% 90% at 100% 50%, rgba(227, 59, 59, 0.1), transparent 58%),
+    radial-gradient(ellipse 70% 80% at 0% 45%, rgba(255, 255, 255, 0.035), transparent 55%),
+    var(--surface);
+}
+
+.fs-board::after {
+  content: "";
+  position: absolute;
+  top: 22%;
+  bottom: 18%;
+  left: 50%;
+  z-index: 0;
+  width: 1px;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .fs-board::after {
+    display: none;
+  }
+}
+
+.fs-event {
+  --event-accent: var(--accent);
+  --event-accent-2: var(--accent-dark);
+  --event-photo: none;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 220ms ease;
+  background:
+    radial-gradient(ellipse 90% 80% at 50% -10%, color-mix(in srgb, var(--event-accent) 16%, transparent), transparent 62%),
+    var(--surface);
+}
+
+/* Real location atmosphere photo */
+.fs-event-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: var(--event-photo);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:hover > .fs-event .fs-event-photo,
+.fs-event:hover .fs-event-photo {
+  transform: scale(1.06);
+}
+
+.fs-event-photo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14, 15, 18, 0.55) 0%,
+      rgba(14, 15, 18, 0.72) 45%,
+      rgba(14, 15, 18, 0.88) 100%
+    ),
+    radial-gradient(
+      ellipse 90% 70% at 50% -10%,
+      color-mix(in srgb, var(--event-accent) 22%, transparent),
+      transparent 65%
+    );
+}
+
+.fs-event[data-intensity="subtle"] .fs-event-photo-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14, 15, 18, 0.62) 0%,
+      rgba(14, 15, 18, 0.78) 50%,
+      rgba(14, 15, 18, 0.9) 100%
+    ),
+    radial-gradient(
+      ellipse 90% 70% at 50% -10%,
+      color-mix(in srgb, var(--event-accent) 14%, transparent),
+      transparent 65%
+    );
+}
+
+.fs-event[data-intensity="featured"] .fs-event-photo-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14, 15, 18, 0.42) 0%,
+      rgba(14, 15, 18, 0.68) 48%,
+      rgba(14, 15, 18, 0.9) 100%
+    ),
+    radial-gradient(
+      ellipse 90% 70% at 50% -10%,
+      color-mix(in srgb, var(--event-accent) 26%, transparent),
+      transparent 65%
+    );
+}
+
+/* Soften abstract motifs when a photo is present */
+.fs-event[data-has-photo="true"] .fs-event-art {
+  opacity: 0.28;
+}
+
+/* Decorative art layer — never participates in layout. */
+.fs-event-art {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.fs-event-content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+}
+
+/* Featured surfaces may let a city silhouette peek past the frame. */
+.fs-event[data-intensity="featured"][data-motif]:not([data-motif="none"]) {
+  overflow: visible;
+}
+
+.fs-event[data-intensity="featured"][data-motif]:not([data-motif="none"]) .fs-event-art {
+  overflow: visible;
+}
+
+.fs-event[data-intensity="featured"][data-motif]:not([data-motif="none"]) .fs-event-content {
+  overflow: hidden;
+  border-radius: inherit;
+  background: transparent;
+}
+
+.fs-event::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  border-radius: inherit;
+}
+
+.fs-event[data-intensity="subtle"]::before {
+  opacity: 0.28;
+}
+
+.fs-event[data-intensity="featured"]::before {
+  opacity: 0.7;
+}
+
+.fs-event[data-pattern="diagonal"]::before {
+  background:
+    repeating-linear-gradient(
+      -28deg,
+      transparent,
+      transparent 17px,
+      rgba(255, 255, 255, 0.028) 17px,
+      rgba(255, 255, 255, 0.028) 18px
+    ),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 0, 0, 0.22), transparent 70%);
+}
+
+.fs-event[data-pattern="geo"]::before {
+  background:
+    repeating-linear-gradient(
+      60deg,
+      transparent,
+      transparent 14px,
+      color-mix(in srgb, var(--event-accent) 14%, transparent) 14px,
+      color-mix(in srgb, var(--event-accent) 14%, transparent) 15px
+    ),
+    repeating-linear-gradient(
+      -60deg,
+      transparent,
+      transparent 22px,
+      color-mix(in srgb, var(--event-accent-2) 10%, transparent) 22px,
+      color-mix(in srgb, var(--event-accent-2) 10%, transparent) 23px
+    ),
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--event-accent-2) 12%, transparent), transparent 40%);
+}
+
+.fs-event[data-pattern="grid"]::before {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255, 255, 255, 0.03), transparent 60%);
+  background-size: 26px 26px, 26px 26px, auto;
+}
+
+.fs-event[data-pattern="arena"]::before {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, color-mix(in srgb, var(--event-accent) 22%, transparent), transparent 68%),
+    radial-gradient(ellipse 40% 40% at 80% 100%, color-mix(in srgb, var(--event-accent-2) 14%, transparent), transparent 70%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 255, 255, 0.018) 48px,
+      rgba(255, 255, 255, 0.018) 49px
+    );
+}
+
+.fs-event[data-pattern="silk"]::before {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 11px,
+      rgba(255, 255, 255, 0.02) 11px,
+      rgba(255, 255, 255, 0.02) 12px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 48px,
+      rgba(255, 255, 255, 0.015) 48px,
+      rgba(255, 255, 255, 0.015) 49px
+    ),
+    radial-gradient(ellipse 60% 80% at 85% 20%, color-mix(in srgb, var(--event-accent-2) 18%, transparent), transparent 60%);
+}
+
+.fs-event[data-pattern="neon"]::before {
+  background:
+    radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--event-accent) 28%, transparent), transparent 28%),
+    radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--event-accent-2) 24%, transparent), transparent 26%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 31px,
+      rgba(255, 255, 255, 0.03) 31px,
+      rgba(255, 255, 255, 0.03) 32px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 31px,
+      rgba(255, 255, 255, 0.02) 31px,
+      rgba(255, 255, 255, 0.02) 32px
+    );
+}
+
+.fs-event[data-pattern="none"]::before {
+  background: radial-gradient(ellipse 80% 60% at 0% 0%, color-mix(in srgb, var(--event-accent) 10%, transparent), transparent 60%);
+}
+
+.fs-event::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 12%;
+  left: 12%;
+  z-index: 3;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--event-accent),
+    var(--event-accent-2),
+    transparent
+  );
+  opacity: 0.8;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.fs-event[data-intensity="subtle"]::after {
+  opacity: 0.45;
+}
+
+/* Prestige hierarchy — same structure, different weight. */
+.fs-event[data-prestige="4"] {
+  border-color: color-mix(in srgb, var(--event-accent-2) 42%, rgba(255, 255, 255, 0.1));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--event-accent-2) 28%, transparent),
+    0 12px 36px rgba(0, 0, 0, 0.28);
+}
+
+.fs-event[data-prestige="4"]::after {
+  height: 3px;
+  opacity: 0.95;
+}
+
+.fs-event[data-prestige="3"] {
+  border-color: color-mix(in srgb, var(--event-accent) 28%, rgba(255, 255, 255, 0.08));
+}
+
+.fs-event[data-prestige="1"] {
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+.fs-event[data-prestige="1"]::after {
+  opacity: 0.35;
+  height: 1px;
+}
+
+.fs-event[data-kind="noche"] {
+  background:
+    radial-gradient(ellipse 75% 60% at 12% 0%, color-mix(in srgb, var(--event-accent) 26%, transparent), transparent 55%),
+    radial-gradient(ellipse 55% 50% at 100% 100%, color-mix(in srgb, var(--event-accent-2) 18%, transparent), transparent 58%),
+    var(--surface);
+}
+
+.fs-event-accent {
+  color: var(--event-accent);
+}
+
+.fs-event-border {
+  border-color: color-mix(in srgb, var(--event-accent) 32%, rgba(255, 255, 255, 0.08));
+}
+
+a.group:hover > .fs-event {
+  border-color: color-mix(in srgb, var(--event-accent) 45%, rgba(255, 255, 255, 0.12));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+.fs-event-vs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--event-accent) 40%, rgba(255, 255, 255, 0.12));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--event-accent) 12%, rgba(0, 0, 0, 0.35));
+  color: var(--event-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+}
+
+.fs-compare-vs {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.fs-compare-vs::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 45%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 68%),
+    rgba(18, 18, 20, 0.92);
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, rgba(255, 255, 255, 0.12));
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--accent) 8%, transparent),
+    0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.fs-compare-vs span {
+  position: relative;
+  z-index: 1;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  color: #fff;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
+}
+
+/* Location enhancement: tint and atmosphere only. Kind stays in charge. */
+.fs-event[data-location="paris"] {
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 0%, color-mix(in srgb, var(--event-accent-2) 28%, transparent), transparent 58%),
+    radial-gradient(ellipse 55% 50% at 0% 100%, color-mix(in srgb, #3a4a62 20%, transparent), transparent 55%),
+    radial-gradient(ellipse 90% 80% at 50% -10%, color-mix(in srgb, var(--event-accent) 8%, transparent), transparent 62%),
+    var(--surface);
+}
+
+.fs-event[data-location="vegas"] {
+  background:
+    radial-gradient(ellipse 55% 42% at 18% 0%, color-mix(in srgb, var(--event-accent) 22%, transparent), transparent 55%),
+    radial-gradient(ellipse 48% 46% at 88% 8%, color-mix(in srgb, var(--event-accent-2) 22%, transparent), transparent 58%),
+    var(--surface);
+}
+
+.fs-event[data-location="abu-dhabi"] {
+  background:
+    radial-gradient(ellipse 85% 72% at 50% -18%, color-mix(in srgb, var(--event-accent-2) 26%, transparent), transparent 58%),
+    radial-gradient(ellipse 90% 80% at 50% -10%, color-mix(in srgb, var(--event-accent) 10%, transparent), transparent 62%),
+    var(--surface);
+}
+
+.fs-event[data-location="mexico"] {
+  background:
+    radial-gradient(ellipse 80% 70% at 8% 0%, color-mix(in srgb, var(--event-accent) 24%, transparent), transparent 56%),
+    radial-gradient(ellipse 50% 50% at 92% 100%, color-mix(in srgb, var(--event-accent-2) 18%, transparent), transparent 60%),
+    var(--surface);
+}
+
+.fs-event[data-location="shanghai"] {
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 0%, color-mix(in srgb, var(--event-accent) 20%, transparent), transparent 55%),
+    radial-gradient(ellipse 50% 45% at 10% 100%, color-mix(in srgb, var(--event-accent-2) 16%, transparent), transparent 58%),
+    var(--surface);
+}
+
+.fs-event[data-location="new-york"] {
+  background:
+    radial-gradient(ellipse 70% 52% at 0% 0%, color-mix(in srgb, var(--event-accent-2) 22%, transparent), transparent 55%),
+    radial-gradient(ellipse 90% 80% at 50% -10%, color-mix(in srgb, var(--event-accent) 10%, transparent), transparent 62%),
+    var(--surface);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fs-shimmer::after,
+  .fs-reveal {
+    animation: none;
+  }
+
+  .fs-reveal-ready {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* FightScope custom red cursor — pointer devices only (class toggled in JS) */
+html.fs-custom-cursor,
+html.fs-custom-cursor * {
+  cursor: none !important;
+}
+
+html.fs-custom-cursor input,
+html.fs-custom-cursor textarea,
+html.fs-custom-cursor select,
+html.fs-custom-cursor [contenteditable="true"] {
+  cursor: text !important;
+}
+
+.fs-global-cursor {
+  z-index: 9998;
+}
+
+@media (hover: none), (pointer: coarse) {
+  html.fs-custom-cursor,
+  html.fs-custom-cursor * {
+    cursor: auto !important;
+  }
+
+  .fs-global-cursor,
+  .pixel-hero-cursor {
+    display: none !important;
+  }
+}
+
+/* App mobile polish */
+@media (max-width: 430px) {
+  .fs-event {
+    border-radius: 16px;
+  }
+
+  .fs-analyze-cta {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  main {
+    overflow-x: clip;
+  }
+}

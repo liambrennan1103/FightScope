@@ -1,0 +1,12 @@
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Next.js site build remains your existing Netlify Next runtime / plugin setup.
+# Scheduled functions POST to /api/jobs/run using CRON_SECRET.
+#
+# Required production env vars — see docs/DEPLOYMENT.md
+# AUTH_SECRET, NEXT_PUBLIC_SITE_URL, SUPABASE_*, STRIPE_*, CRON_SECRET
+#
+# Stripe webhook path: /api/billing/webhook
+# (configure in Stripe Dashboard → Developers → Webhooks)

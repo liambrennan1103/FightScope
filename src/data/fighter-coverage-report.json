@@ -1,0 +1,454 @@
+{
+  "generatedAt": "2026-09-05T10:55:14.022Z",
+  "totals": {
+    "fightersInSnapshot": 436,
+    "portraitIndexEntries": 464,
+    "approvedOnDiskMatchingSnapshot": 422,
+    "missingOrUnresolvedPortraits": 12,
+    "brokenPortraitFiles": 0,
+    "incompleteProfiles": 284,
+    "espnPngFilesOnDisk": 447,
+    "coveragePct": 96.8
+  },
+  "missingPortraits": [
+    {
+      "id": "5364347",
+      "name": "Matt Adams",
+      "slug": "matt-adams",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5364833",
+      "name": "Abe Alsaghir",
+      "slug": "abe-alsaghir",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5369721",
+      "name": "Arlind Berisha",
+      "slug": "arlind-berisha",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5364834",
+      "name": "Fabrizio Escarrega",
+      "slug": "fabrizio-escarrega",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5215178",
+      "name": "Namo Fazil",
+      "slug": "namo-fazil",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "4687604",
+      "name": "Joe Kropschot",
+      "slug": "joe-kropschot",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5282317",
+      "name": "Jon Kunneman",
+      "slug": "jon-kunneman",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5116823",
+      "name": "Tom Pagliarulo",
+      "slug": "tom-pagliarulo",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5307124",
+      "name": "Quentin Pasley",
+      "slug": "quentin-pasley",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5139609",
+      "name": "Logan Paxton",
+      "slug": "logan-paxton",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5369435",
+      "name": "Douglas Rodrigues",
+      "slug": "douglas-rodrigues",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    },
+    {
+      "id": "5277466",
+      "name": "Mridul Saikia",
+      "slug": "mridul-saikia",
+      "indexStatus": "missing",
+      "indexReason": "espn 404",
+      "onDisk": false
+    }
+  ],
+  "brokenPortraitFiles": [],
+  "incompleteProfilesSample": [
+    {
+      "id": "5211221",
+      "name": "Mansur Abdul-Malik",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5364347",
+      "name": "Matt Adams",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4285679",
+      "name": "Israel Adesanya",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3136286",
+      "name": "Irene Aldana",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2447641",
+      "name": "José Aldo",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5144068",
+      "name": "Cesar Almeida",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5364833",
+      "name": "Abe Alsaghir",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4411888",
+      "name": "Joel Álvarez",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5307811",
+      "name": "Mahamed Aly",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3112020",
+      "name": "Corey Anderson",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5369722",
+      "name": "Damien Anderson",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3024395",
+      "name": "Jessica Andrade",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4273399",
+      "name": "Magomed Ankalaev",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4064692",
+      "name": "Askar Askarov",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5239615",
+      "name": "Steven Asplund",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2354364",
+      "name": "Raphael Assuncao",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2335530",
+      "name": "Ryan Bader",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4801725",
+      "name": "Dione Barbosa",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5099679",
+      "name": "Marcio Barbosa",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2526299",
+      "name": "Edson Barboza",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5016786",
+      "name": "Farid Basharat",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5120304",
+      "name": "Austin Bashi",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5145018",
+      "name": "Namsrai Batbayar",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4410868",
+      "name": "Mario Bautista",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5345643",
+      "name": "Delphine Benouaich",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5369721",
+      "name": "Arlind Berisha",
+      "missingFields": [
+        "reach",
+        "stance",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2506250",
+      "name": "Jan Blachowicz",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3093513",
+      "name": "Ismael Bonfim",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4280789",
+      "name": "Rogerio Bontorin",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4297311",
+      "name": "Ramiz Brahimaj",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5056138",
+      "name": "Kaik Brito",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2560056",
+      "name": "Derek Brunson",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3090197",
+      "name": "Gilbert Burns",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4686735",
+      "name": "Dennis Buzukja",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "4085155",
+      "name": "Cynthia Calvillo",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "3154860",
+      "name": "Jared Cannonier",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5097909",
+      "name": "Gigi Canuto",
+      "missingFields": [
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "2554674",
+      "name": "Liz Carmouche",
+      "missingFields": [
+        "reach",
+        "age",
+        "stance",
+        "recentFights",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5292011",
+      "name": "Liu Ce",
+      "missingFields": [
+        "stance",
+        "strikingRates"
+      ]
+    },
+    {
+      "id": "5351430",
+      "name": "Vlasto Čepo",
+      "missingFields": [
+        "strikingRates"
+      ]
+    }
+  ],
+  "incompleteProfilesTotal": 284,
+  "notes": [
+    "Approved = portrait-index status approved AND local PNG > 12KB.",
+    "Most unresolved Contender Series prospects fail ESPN headshot CDN (404).",
+    "Incomplete profile counts missing reach/age/stance/recentFights/striking rates — common for new prospects."
+  ]
+}

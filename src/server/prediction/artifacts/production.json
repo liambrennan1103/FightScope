@@ -1,0 +1,72 @@
+{
+  "modelVersion": "prediction_engine_v4",
+  "featureSchemaVersion": "features_v4",
+  "calibrationVersion": "platt_temp_v1",
+  "dataSnapshotVersion": "catalog_asof_v1",
+  "trainedAt": "2026-09-20T12:01:37.368Z",
+  "calibration": {
+    "temperature": 0.85,
+    "shrinkStrength": 0.35
+  },
+  "platt": {
+    "a": 1,
+    "b": 0.2
+  },
+  "baseRates": {
+    "overall": {
+      "koTko": 0.4827586206896552,
+      "submission": 0.3275862068965517,
+      "decision": 0.1896551724137931,
+      "n": 58
+    },
+    "rounds3": {
+      "koTko": 0.46296296296296297,
+      "submission": 0.35185185185185186,
+      "decision": 0.18518518518518517,
+      "n": 54
+    },
+    "rounds5": {
+      "koTko": 0.5,
+      "submission": 0.29,
+      "decision": 0.21,
+      "n": 4
+    },
+    "mens": {
+      "koTko": 0.5294117647058824,
+      "submission": 0.29411764705882354,
+      "decision": 0.17647058823529413,
+      "n": 51
+    },
+    "womens": {
+      "koTko": 0.5,
+      "submission": 0.29,
+      "decision": 0.21,
+      "n": 7
+    }
+  },
+  "metrics": {
+    "validation": {
+      "accuracy": 0.6666666666666666,
+      "brier": 0.21541728395061727,
+      "logloss": 0.6220350215582844,
+      "ece": 0.13654320987654325
+    },
+    "test": {
+      "accuracy": 0.6790123456790124,
+      "brier": 0.21207160493827162,
+      "logloss": 0.6149690180648477,
+      "ece": 0.11308641975308642
+    },
+    "decisionBiasPp": -8.550000000000002
+  },
+  "notes": [
+    "NOT PROMOTED pending audit gates (Brier/logloss/ECE vs Elo + as-of record).",
+    "Prior auto-write from backtest; treat as candidate until fightscope:backtest reports promotedToArtifact=true.",
+    "Winner corpus from matched recentFights pairs (as-of; Elo ratingsBefore; career rates down-weighted).",
+    "Method corpus limited to catalog completed fights with method labels (~97) — method metrics are underpowered.",
+    "No Anthropic calls. Smoke-test cards are diagnostic only — not used in fitting.",
+    "Calibration (T/shrink) + Platt fitted on validation only; test untouched during selection.",
+    "Decision channel no longer receives artificial logit boost; base rates matched to corpus (~50/29/21).",
+    "Chronological Elo built from 405 labeled pairs."
+  ]
+}

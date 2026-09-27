@@ -1,0 +1,472 @@
+{
+  "referenceViewport": {
+    "width": 1366,
+    "height": 5685,
+    "unit": "CSS px"
+  },
+  "page": {
+    "background": "#16181E",
+    "fontHeading": "Archivo Black",
+    "fontBody": "Open Sans"
+  },
+  "colors": {
+    "background": "#16181E",
+    "accent": "#E8765D",
+    "white": "#FFFFFF",
+    "muted": "#D9D9D9",
+    "languagePill": "#6B6C72",
+    "searchGradientStart": "#C73636",
+    "searchGradientEnd": "#E8765D"
+  },
+  "sections": [
+    {
+      "name": "hero",
+      "y": 0,
+      "height": 912
+    },
+    {
+      "name": "fighters",
+      "y": 912,
+      "height": 934
+    },
+    {
+      "name": "matchup",
+      "y": 1846,
+      "height": 768
+    },
+    {
+      "name": "analysis",
+      "y": 2614,
+      "height": 1181
+    },
+    {
+      "name": "sources",
+      "y": 3795,
+      "height": 932
+    },
+    {
+      "name": "faq",
+      "y": 4727,
+      "height": 958
+    }
+  ],
+  "images": [
+    {
+      "file": "assets/logo.png",
+      "x": 57.2,
+      "y": -2.6,
+      "w": 173.0,
+      "h": 61.0,
+      "opacity": 1
+    },
+    {
+      "file": "assets/hero_arena.png",
+      "x": 0,
+      "y": 53.3,
+      "w": 1366,
+      "h": 754,
+      "opacity": 0.11,
+      "borderRadius": 100
+    },
+    {
+      "file": "assets/fighter_strip_left.png",
+      "x": 0,
+      "y": 1077.9,
+      "w": 695,
+      "h": 394,
+      "opacity": 1
+    },
+    {
+      "file": "assets/fighter_strip_right.png",
+      "x": 694.7,
+      "y": 1091.5,
+      "w": 961,
+      "h": 409,
+      "opacity": 1,
+      "clipToViewport": true
+    },
+    {
+      "file": "assets/omalley.png",
+      "x": 0,
+      "y": 2011.6,
+      "w": 396,
+      "h": 602,
+      "opacity": 1,
+      "usesAlphaMask": "assets/omalley_alpha.png"
+    },
+    {
+      "file": "assets/oliveira.png",
+      "x": 1033.6,
+      "y": 2011.6,
+      "w": 403,
+      "h": 613,
+      "opacity": 1,
+      "usesAlphaMask": "assets/oliveira_alpha.png",
+      "clipToViewport": true
+    },
+    {
+      "file": "assets/analysis_fight_bg.png",
+      "x": 0,
+      "y": 2972.3,
+      "w": 1366,
+      "h": 820,
+      "opacity": 0.18
+    },
+    {
+      "file": "assets/glove_touch_overlay.png",
+      "x": -118.6,
+      "y": 3304.1,
+      "w": 539.9,
+      "h": 321.4,
+      "opacity": 0.1,
+      "clipToViewport": true
+    },
+    {
+      "file": "assets/sources_octagon_bg.png",
+      "x": 0,
+      "y": 3957.4,
+      "w": 1366,
+      "h": 925,
+      "opacity": 0.13,
+      "clipToSection": "sources"
+    }
+  ],
+  "searchBox": {
+    "x": 507.5,
+    "y": 525.1,
+    "w": 351.1,
+    "h": 56.0,
+    "borderRadius": 11,
+    "borderWidth": 10,
+    "borderGradient": [
+      "#C73636",
+      "#E8765D"
+    ],
+    "fill": "#16181E"
+  },
+  "languagePill": {
+    "x": 855.8,
+    "y": 9.1,
+    "w": 146.4,
+    "h": 38.3,
+    "borderRadius": 11,
+    "fill": "#6B6C72"
+  },
+  "text": [
+    {
+      "text": "PREDICT EVERY",
+      "x": 348.6,
+      "y": 187.4,
+      "fontSize": 74.66,
+      "font": "Archivo Black",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "FIGHT BEFORE IT",
+      "x": 320.1,
+      "y": 264.0,
+      "fontSize": 74.66,
+      "font": "Archivo Black",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "STARTS.",
+      "x": 507.5,
+      "y": 332.9,
+      "fontSize": 74.66,
+      "font": "Archivo Black",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "AI analysis, advanced statistics, and fight scenarios to anticipate outcomes",
+      "x": 317.5,
+      "y": 428.6,
+      "fontSize": 19.59,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "and better understand the game.",
+      "x": 520.5,
+      "y": 455.6,
+      "fontSize": 19.59,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "Search for a fighter (eg: Ilia Topuria)",
+      "x": 514.6,
+      "y": 538.7,
+      "fontSize": 20.34,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#D9D9D9"
+    },
+    {
+      "text": "92.2% accuraty on 324 fights analysed last week",
+      "x": 386.2,
+      "y": 673.8,
+      "fontSize": 26.69,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#D9D9D9"
+    },
+    {
+      "text": "English",
+      "x": 887.2,
+      "y": 13.8,
+      "fontSize": 18.66,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "Login",
+      "x": 1111.6,
+      "y": 4.7,
+      "fontSize": 32.0,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "MORE THAN 500 FIGHTERS ",
+      "x": 149.5,
+      "y": 991.1,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "COVERED",
+      "x": 519.7,
+      "y": 1062.0,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "O’Malley VS Olivera",
+      "x": 287.0,
+      "y": 1927.1,
+      "fontSize": 73.94,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "Millions of MMA data analyzed from over 220 sources to ",
+      "x": 308.3,
+      "y": 2008.4,
+      "fontSize": 26.66,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "predict each match.",
+      "x": 550.7,
+      "y": 2045.5,
+      "fontSize": 26.66,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "22,7%",
+      "x": 274.8,
+      "y": 2200.3,
+      "fontSize": 87.26,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": " 0.5%",
+      "x": 528.1,
+      "y": 2199.9,
+      "fontSize": 85.86,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": " 76.8%",
+      "x": 783.0,
+      "y": 2198.5,
+      "fontSize": 87.2,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "Victory O’Malley",
+      "x": 301.7,
+      "y": 2326.3,
+      "fontSize": 29.73,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "Draw",
+      "x": 643.6,
+      "y": 2324.5,
+      "fontSize": 29.73,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "Victory Olivera",
+      "x": 832.4,
+      "y": 2323.9,
+      "fontSize": 29.78,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "AI ANALSYS TO ",
+      "x": 29.5,
+      "y": 2974.6,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "ANTICIPATE EACH ",
+      "x": 24.5,
+      "y": 3040.1,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "FIGHT.",
+      "x": 24.5,
+      "y": 3107.0,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "Probabilities, scenarios, and key",
+      "x": 24.5,
+      "y": 3203.9,
+      "fontSize": 21.33,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "data to understand the course ",
+      "x": 24.5,
+      "y": 3232.9,
+      "fontSize": 21.33,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "of a fight even before they",
+      "x": 24.5,
+      "y": 3261.9,
+      "fontSize": 21.33,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "touch glove.",
+      "x": 24.5,
+      "y": 3290.9,
+      "fontSize": 21.33,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "WE ANALYZE OVER",
+      "x": 292.6,
+      "y": 4020.9,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "300 SOURCES",
+      "x": 400.5,
+      "y": 4090.9,
+      "fontSize": 73.33,
+      "font": "Archivo Black",
+      "color": "#E8765D"
+    },
+    {
+      "text": "One team, one process, to launch an app designed for conversion",
+      "x": 249.8,
+      "y": 4183.5,
+      "fontSize": 26.66,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#D9D9D9"
+    },
+    {
+      "text": " and profitability.",
+      "x": 567.2,
+      "y": 4220.5,
+      "fontSize": 26.66,
+      "font": "Open Sans",
+      "weight": 700,
+      "color": "#D9D9D9"
+    },
+    {
+      "text": "FREQUENTLY QUESTIONS",
+      "x": 250.4,
+      "y": 4904.2,
+      "fontSize": 60.0,
+      "font": "Archivo Black",
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "1. Is FightScope Free?",
+      "x": 163.9,
+      "y": 5127.1,
+      "fontSize": 29.33,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "2.How do AI analasys work?",
+      "x": 163.9,
+      "y": 5260.6,
+      "fontSize": 29.33,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "3.Does Fightscope allow betting?",
+      "x": 163.9,
+      "y": 5393.7,
+      "fontSize": 29.33,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    },
+    {
+      "text": "4.Is the data reliable?",
+      "x": 163.9,
+      "y": 5526.9,
+      "fontSize": 29.33,
+      "font": "Open Sans",
+      "weight": 400,
+      "color": "#FFFFFF"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "generatedAt": "2026-09-05T10:55:00.000Z",
+  "unresolved": [
+    { "id": "5364347", "name": "Matt Adams", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5364833", "name": "Abe Alsaghir", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5369721", "name": "Arlind Berisha", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5364834", "name": "Fabrizio Escarrega", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5215178", "name": "Namo Fazil", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "4687604", "name": "Joe Kropschot", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5282317", "name": "Jon Kunneman", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5116823", "name": "Tom Pagliarulo", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5307124", "name": "Quentin Pasley", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5139609", "name": "Logan Paxton", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5369435", "name": "Douglas Rodrigues", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" },
+    { "id": "5277466", "name": "Mridul Saikia", "reason": "espn 404 — Contender Series prospect, no ESPN headshot" }
+  ],
+  "excludedStubs": [
+    { "id": "4402367", "name": "Opponent TBA", "reason": "intentional placeholder" },
+    { "id": "2431356", "name": "TBA", "reason": "intentional placeholder" }
+  ],
+  "notes": [
+    "ESPN headshot CDN returns 404 for all unresolved IDs (verified 2026-09-05).",
+    "UFC.com / Wikipedia fallbacks historically empty or blocked for these Contender Series prospects.",
+    "UI already uses clean AnonymousFighterPortrait silhouette — never broken image icons.",
+    "Re-run: npm run portraits:ingest && npm run fighters:audit"
+  ]
+}

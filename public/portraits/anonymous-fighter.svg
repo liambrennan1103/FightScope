@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="280" viewBox="0 0 200 280" role="img" aria-label="Anonymous fighter">
+  <defs>
+    <linearGradient id="fsAnonBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1d"/>
+      <stop offset="55%" stop-color="#121214"/>
+      <stop offset="100%" stop-color="#1c1214"/>
+    </linearGradient>
+    <linearGradient id="fsAnonBust" x1="0.5" y1="0" x2="0.5" y2="1">
+      <stop offset="0%" stop-color="#2a2a2e"/>
+      <stop offset="45%" stop-color="#1c1c20"/>
+      <stop offset="100%" stop-color="#141416"/>
+    </linearGradient>
+    <radialGradient id="fsAnonGlow" cx="50%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#e33b3b" stop-opacity="0.28"/>
+      <stop offset="55%" stop-color="#e33b3b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fsAnonEdge" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e33b3b" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#e33b3b" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="280" fill="url(#fsAnonBg)"/>
+  <rect width="200" height="280" fill="url(#fsAnonGlow)"/>
+  <rect x="0" y="0" width="200" height="2" fill="url(#fsAnonEdge)"/>
+  <path d="M18 280 C28 210 58 188 100 188 C142 188 172 210 182 280 Z" fill="url(#fsAnonBust)"/>
+  <path d="M34 280 C42 228 64 206 100 206 C136 206 158 228 166 280 Z" fill="#17171a" opacity="0.55"/>
+  <path d="M84 168 C88 184 92 196 100 198 C108 196 112 184 116 168 Z" fill="#222226"/>
+  <ellipse cx="100" cy="118" rx="42" ry="50" fill="url(#fsAnonBust)"/>
+  <ellipse cx="100" cy="124" rx="28" ry="34" fill="#1a1a1e" opacity="0.55"/>
+  <ellipse cx="58" cy="122" rx="7" ry="11" fill="#242428" opacity="0.8"/>
+  <ellipse cx="142" cy="122" rx="7" ry="11" fill="#242428" opacity="0.8"/>
+  <path d="M62 108 C70 78 130 78 138 108 C132 92 68 92 62 108 Z" fill="#101012" opacity="0.75"/>
+  <rect width="200" height="280" fill="url(#fsAnonGlow)" opacity="0.5"/>
+</svg>
