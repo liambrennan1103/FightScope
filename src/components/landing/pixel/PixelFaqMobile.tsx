@@ -14,6 +14,7 @@ export function PixelFaqMobile() {
       <h2 className="pixel-mobile-heading pixel-mobile-heading--center pixel-mobile-faq-heading">
         {copy.faq.heading}
       </h2>
+      <p className="pixel-mobile-body pixel-mobile-body--center pixel-mobile-faq-intro">{copy.faq.intro}</p>
       <div className="pixel-mobile-faq-list">
         {copy.faq.items.map((item, index) => {
           const isOpen = open === index;

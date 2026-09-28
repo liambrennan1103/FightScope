@@ -1,5 +1,10 @@
 import type { PricingTier } from "@/lib/types";
 
+/**
+ * Display prices for Landing + Pricing UI.
+ * Stripe price IDs live in env (STRIPE_PRICE_STARTER / STRIPE_PRICE_PRO) — not here.
+ * Landing must import this module; do not hardcode euro amounts in i18n.
+ */
 export const PRICING_TIERS: PricingTier[] = [
   {
     id: "free",

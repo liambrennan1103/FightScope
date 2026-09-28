@@ -1,4 +1,4 @@
-export const PIXEL_VIEWPORT = { width: 1366, height: 6105 } as const;
+export const PIXEL_VIEWPORT = { width: 1366, height: 2614 } as const;
 
 export const PIXEL_COLORS = {
   background: "#16181E",
@@ -10,17 +10,15 @@ export const PIXEL_COLORS = {
   searchGradientEnd: "#E8765D",
 } as const;
 
+/** Cinematic canvas: hero → fighters → featured matchup. Story continues in flow. */
 export const PIXEL_SECTIONS = [
   { name: "hero", y: 0, height: 912 },
   { name: "fighters", y: 912, height: 934 },
   { name: "matchup", y: 1846, height: 768 },
-  { name: "analysis", y: 2614, height: 1181 },
-  { name: "sources", y: 3795, height: 932 },
-  { name: "faq", y: 4727, height: 958 },
 ] as const;
 
-/** Desktop canvas height including footer band after FAQ. */
-export const PIXEL_CANVAS_HEIGHT = 6105;
+/** Desktop scaled canvas height (hero + fighters + matchup only). */
+export const PIXEL_CANVAS_HEIGHT = 2614;
 
 export const PIXEL_ASSETS = "/landing-reference";
 

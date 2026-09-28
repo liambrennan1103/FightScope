@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo_Black, Geist, Geist_Mono, Open_Sans, Oswald } from "next/font/google";
 import { AccountProvider } from "@/components/providers/AccountProvider";
-import { GlobalCursor } from "@/components/providers/GlobalCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,7 +16,6 @@ const geistMono = Geist_Mono({
 const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
 const archivoBlack = Archivo_Black({
@@ -26,10 +24,12 @@ const archivoBlack = Archivo_Black({
   weight: "400",
 });
 
+// Use the variable Open Sans face (omit static weight[]). Turbopack's google-font
+// replacer errors with "queries have exactly one entry" when multiple static
+// weights are requested after a stale/mixed .next cache.
 const openSans = Open_Sans({
   variable: "--font-open-sans",
   subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -53,7 +53,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     >
       <body className="min-h-full bg-background font-sans text-ink">
         <AccountProvider user={null}>
-          <GlobalCursor />
           {children}
         </AccountProvider>
       </body>
